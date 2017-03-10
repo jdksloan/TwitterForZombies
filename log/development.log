@@ -1524,3 +1524,161 @@ Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.2ms)
   [1m[35m (2.7ms)[0m  commit transaction
   [1m[36mBrain Load (0.1ms)[0m  [1mSELECT  "brains".* FROM "brains" WHERE "brains"."id" = ? LIMIT 1[0m  [["id", 1]]
   [1m[35mZombie Load (0.1ms)[0m  SELECT  "zombies".* FROM "zombies" WHERE "zombies"."id" = ? LIMIT 1  [["id", 1]]
+
+
+Started GET "/zombies" for ::1 at 2017-03-10 10:54:12 +0000
+Processing by ZombiesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/Users/jethrosloan/Code School/Ruby/TwitterZombies/TwitterForZombies/app/models/zombie.rb:2: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  has_one :brain, dependent :destroy
+                             ^):
+  app/models/zombie.rb:2: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  app/controllers/zombies_controller.rb:7:in `index'
+
+
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.8ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (48.8ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (106.7ms)
+
+
+Started GET "/zombies" for ::1 at 2017-03-10 10:57:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ZombiesController#index as HTML
+  [1m[35mZombie Load (0.1ms)[0m  SELECT "zombies".* FROM "zombies"
+  Rendered zombies/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 204ms (Views: 193.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/zombies/new" for ::1 at 2017-03-10 10:57:37 +0000
+Processing by ZombiesController#new as HTML
+  Rendered zombies/_form.html.erb (13.9ms)
+  Rendered zombies/new.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 35ms (Views: 31.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/zombies" for ::1 at 2017-03-10 10:57:45 +0000
+Processing by ZombiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uyBs8NR6F4UHrE2pMgIR2xnMl53jyDGwKm0TZIY2pgeqUOYLhVC7ziwptB3J04N10UN6TqP2leadHv2bmuBT5g==", "zombie"=>{"name"=>"Grimjaw", "bio"=>"Naruto", "age"=>"21"}, "commit"=>"Create Zombie"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "zombies" ("name", "bio", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Grimjaw"], ["bio", "Naruto"], ["age", 21], ["created_at", "2017-03-10 10:57:45.688851"], ["updated_at", "2017-03-10 10:57:45.688851"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/zombies/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/zombies/2" for ::1 at 2017-03-10 10:57:45 +0000
+Processing by ZombiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mZombie Load (0.1ms)[0m  SELECT  "zombies".* FROM "zombies" WHERE "zombies"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered zombies/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 0.1ms)
+  [1m[36mZombie Load (0.2ms)[0m  [1mSELECT  "zombies".* FROM "zombies"  ORDER BY "zombies"."id" DESC LIMIT 1[0m
+  [1m[35mBrain Load (0.1ms)[0m  SELECT  "brains".* FROM "brains" WHERE "brains"."zombie_id" = ? LIMIT 1  [["zombie_id", 2]]
+  [1m[36mBrain Load (0.2ms)[0m  [1mSELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1[0m
+  [1m[35mBrain Load (0.2ms)[0m  SELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "brains" WHERE "brains"."id" = ?  [["id", 1]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mBrain Load (0.2ms)[0m  SELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "brains" ("status", "flavor", "zombie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["status", "Squashed"], ["flavor", "Mud"], ["zombie_id", 2], ["created_at", "2017-03-10 10:59:01.798775"], ["updated_at", "2017-03-10 10:59:01.798775"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mBrain Load (0.2ms)[0m  SELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1
+  [1m[36mZombie Load (0.2ms)[0m  [1mSELECT  "zombies".* FROM "zombies"  ORDER BY "zombies"."id" DESC LIMIT 1[0m
+  [1m[35mBrain Load (0.1ms)[0m  SELECT  "brains".* FROM "brains" WHERE "brains"."zombie_id" = ? LIMIT 1  [["zombie_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "zombies" WHERE "zombies"."id" = ?  [["id", 2]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mBrain Load (0.2ms)[0m  SELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1
+  [1m[36mZombie Load (0.2ms)[0m  [1mSELECT  "zombies".* FROM "zombies"  ORDER BY "zombies"."id" DESC LIMIT 1[0m
+  [1m[35mBrain Load (0.2ms)[0m  SELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1
+  [1m[36mBrain Load (0.3ms)[0m  [1mSELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "brains" WHERE "brains"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36mZombie Load (0.2ms)[0m  [1mSELECT  "zombies".* FROM "zombies"  ORDER BY "zombies"."id" DESC LIMIT 1[0m
+
+
+Started GET "/zombies/2/edit" for ::1 at 2017-03-10 11:00:34 +0000
+Processing by ZombiesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mZombie Load (0.1ms)[0m  [1mSELECT  "zombies".* FROM "zombies" WHERE "zombies"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Zombie with 'id'=2):
+  app/controllers/zombies_controller.rb:68:in `set_zombie'
+
+
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-4.2.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.0ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.4ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/jethrosloan/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (99.9ms)
+
+
+Started GET "/zombies" for ::1 at 2017-03-10 11:00:38 +0000
+Processing by ZombiesController#index as HTML
+  [1m[35mZombie Load (0.1ms)[0m  SELECT "zombies".* FROM "zombies"
+  Rendered zombies/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/zombies/new" for ::1 at 2017-03-10 11:00:39 +0000
+Processing by ZombiesController#new as HTML
+  Rendered zombies/_form.html.erb (1.7ms)
+  Rendered zombies/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 15ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/zombies" for ::1 at 2017-03-10 11:00:45 +0000
+Processing by ZombiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D4Qj3SVNDV8ZTVP32REMu0fTFVsaIkH8vevkmF0Vk58e9KkmdGehFDLIqkMiwJ4Vj1z4iFoc5aoKmApnQcNmfg==", "zombie"=>{"name"=>"Grimjaw", "bio"=>"Naruto", "age"=>"21"}, "commit"=>"Create Zombie"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "zombies" ("name", "bio", "age", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Grimjaw"], ["bio", "Naruto"], ["age", 21], ["created_at", "2017-03-10 11:00:45.251603"], ["updated_at", "2017-03-10 11:00:45.251603"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/zombies/3
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/zombies/3" for ::1 at 2017-03-10 11:00:45 +0000
+Processing by ZombiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mZombie Load (0.1ms)[0m  SELECT  "zombies".* FROM "zombies" WHERE "zombies"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered zombies/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/zombies" for ::1 at 2017-03-10 11:00:46 +0000
+Processing by ZombiesController#index as HTML
+  [1m[36mZombie Load (0.2ms)[0m  [1mSELECT "zombies".* FROM "zombies"[0m
+  Rendered zombies/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+  [1m[35mZombie Load (0.3ms)[0m  SELECT  "zombies".* FROM "zombies"  ORDER BY "zombies"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "brains" ("status", "flavor", "zombie_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["status", "Squashed"], ["flavor", "Mud"], ["zombie_id", 3], ["created_at", "2017-03-10 11:01:00.596693"], ["updated_at", "2017-03-10 11:01:00.596693"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mBrain Load (0.1ms)[0m  SELECT  "brains".* FROM "brains" WHERE "brains"."zombie_id" = ? LIMIT 1  [["zombie_id", 3]]
+  [1m[36mZombie Load (0.1ms)[0m  [1mSELECT  "zombies".* FROM "zombies"  ORDER BY "zombies"."id" DESC LIMIT 1[0m
+  [1m[35mBrain Load (0.1ms)[0m  SELECT  "brains".* FROM "brains" WHERE "brains"."zombie_id" = ? LIMIT 1  [["zombie_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "brains" WHERE "brains"."id" = ?  [["id", 3]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "zombies" WHERE "zombies"."id" = ?[0m  [["id", 3]]
+  [1m[35m (2.4ms)[0m  commit transaction
+  [1m[36mBrain Load (0.2ms)[0m  [1mSELECT  "brains".* FROM "brains"  ORDER BY "brains"."id" DESC LIMIT 1[0m
